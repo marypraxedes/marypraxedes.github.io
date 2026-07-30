@@ -118,10 +118,12 @@ goalForm.addEventListener('submit', function(event) {
 ========================================= */
 
 // 1. Coloque o seu usuário do GitHub aqui
-const githubUser = "marypraxedes"; // EX: "maryanepraxedes"
+const githubUser = "marypraxedes"; 
+
+// 🔥 Coloque aqui o nome EXATO do repositório do seu site PDI (como está lá no GitHub) para ele não aparecer na lista
+const repoToHide = "marypraxedes.github.io"; 
 
 // 2. Mapeamento de nomes e descrições personalizadas
-// Se o repo não estiver nesta lista, ele usa o nome original.
 const customRepoData = {
     "projeto_final_bloco_02": {
         name: "Farmácia API",
@@ -134,8 +136,7 @@ const customRepoData = {
     "blogpessoal_spring": {
         name: "Blog Pessoal",
         description: "Blog pessoal com autenticação e CRUD de postagens"
-    },
-    
+    }
 };
 
 async function getGitHubRepos() {
@@ -151,25 +152,23 @@ async function getGitHubRepos() {
         const repos = await response.json();
         reposContainer.innerHTML = "";
 
-        // Se o usuário não tiver repositórios
-        if (repos.length === 0) {
+        // 🔥 O TRUQUE ARANHA: Filtra a lista removendo o repositório do próprio PDI
+        const filteredRepos = repos.filter(repo => repo.name !== repoToHide);
+
+        // Se o usuário não tiver repositórios (ou se o único for o que foi escondido)
+        if (filteredRepos.length === 0) {
             reposContainer.innerHTML = "<p>> Nenhum projeto público encontrado.</p>";
             return;
         }
 
-        // Filtra apenas os repositórios que você quer mostrar (opcional: se quiser mostrar todos, basta remover esse .filter e o slice)
-        // Aqui eu vou mostrar os 4 primeiros que vierem da API.
-        const reposToShow = repos.slice(0, 3); 
+        // Pega os 3 primeiros projetos da lista JÁ FILTRADA
+        const reposToShow = filteredRepos.slice(0, 3); 
 
         reposToShow.forEach((repo, index) => {
             const treeBranch = (index === reposToShow.length - 1) ? "└──" : "├──";
             
-            // Aqui acontece a mágica: 
-            // Verifica se o nome original do repo (repo.name) existe no nosso objeto customRepoData.
-            // Se existir, usa o nome personalizado. Se não existir, usa o nome original.
+            // Mágica do nome e descrição
             const displayName = customRepoData[repo.name] ? customRepoData[repo.name].name : repo.name;
-            
-            // Faz a mesma coisa para a descrição.
             const displayDesc = customRepoData[repo.name] ? customRepoData[repo.name].description : (repo.description || "Projeto em desenvolvimento...");
 
             const repoHTML = `
