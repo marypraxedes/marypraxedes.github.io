@@ -1,0 +1,409 @@
+/* =========================
+   VARIÁVEIS DO ARANHAVERSO
+========================= */
+:root {
+    --spider-red: #DC2626;
+    --spider-blue: #2563EB;
+    --spider-light-blue: #60a5fa;
+    --venom-dark: #050816;
+    --web-white: #e2e8f0;
+    --terminal-bg: #020617;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--venom-dark);
+    color: var(--web-white);
+    font-family: 'JetBrains Mono', monospace;
+    overflow-x: hidden;
+}
+
+/* =========================
+   FUNDO TECH
+========================= */
+.grid-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(37,99,235,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(220,38,38,.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    from { background-position: 0 0; }
+    to { background-position: 50px 50px; }
+}
+
+/* =========================
+   NAVBAR (PÍLULA FLUTUANTE)
+========================= */
+.navbar {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza perfeitamente */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 15px 40px;
+    
+    /* Efeito de vidro futurista */
+    background: rgba(5, 8, 22, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    border: 1px solid rgba(37, 99, 235, 0.4);
+    border-radius: 50px; /* Deixa em formato de pílula */
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: var(--spider-red);
+}
+
+.navbar ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--spider-red);
+    text-shadow: 0 0 10px rgba(220, 38, 38, 0.6);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   NAVBAR MOBILE
+========================= */
+@media(max-width: 800px) {
+    .navbar {
+        width: 90%;
+        top: 15px;
+        padding: 15px 20px;
+        gap: 20px;
+        flex-direction: column; /* Empilha logo e menu no celular */
+        border-radius: 20px;
+    }
+    
+    .navbar ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* =========================
+   HERO & TERMINAL ANIMATION
+========================= */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.hero-content {
+    max-width: 900px;
+    animation: aparecer 1.5s ease;
+}
+
+.terminal-animation {
+    text-align: left;
+    background: var(--terminal-bg);
+    border: 1px solid var(--spider-blue);
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 0 auto 40px;
+    box-shadow: 0 0 25px rgba(37,99,235,.25);
+    min-height: 180px;
+}
+
+.terminal-animation p {
+    color: var(--spider-light-blue);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.hero h1 {
+    font-size: 90px;
+    letter-spacing: 10px;
+    color: white;
+}
+
+.hero h1 span { color: var(--spider-red); }
+
+.hero h2 {
+    margin-top: 20px;
+    color: #94a3b8;
+    font-size: 30px;
+}
+
+.subtitle {
+    margin-top: 20px;
+    color: var(--spider-light-blue);
+}
+
+.quote {
+    margin: 40px auto;
+    max-width: 600px;
+    font-size: 20px;
+    color: #f8fafc;
+    border-left: 3px solid var(--spider-red);
+    padding-left: 20px;
+}
+
+button, .enter-button {
+    background: transparent;
+    color: white;
+    border: 1px solid var(--spider-red);
+    padding: 15px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: .3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+button:hover, .enter-button:hover {
+    background: var(--spider-red);
+    box-shadow: 0 0 30px var(--spider-red);
+}
+
+/* =========================
+   SEÇÕES & TERMINAL BOX
+========================= */
+section { padding: 100px 10%; }
+
+.section-title {
+    font-size: 35px;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.section-title span { color: var(--spider-red); }
+
+.terminal-box, .projects-terminal {
+    background: var(--terminal-bg);
+    border: 1px solid var(--spider-blue);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(37,99,235,.2);
+}
+
+.terminal-box p, .projects-terminal p { color: var(--spider-light-blue); }
+
+/* Input PDI */
+#goal-input {
+    width: 70%;
+    padding: 15px;
+    background: transparent;
+    border: 1px solid var(--spider-blue);
+    color: white;
+    font-family: inherit;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+#goal-input:focus {
+    outline: none;
+    border-color: var(--spider-red);
+    box-shadow: 0 0 10px var(--spider-red);
+}
+
+/* =========================
+   JOURNEY & SKILLS
+========================= */
+.timeline {
+    border-left: 3px solid var(--spider-red);
+    padding-left: 40px;
+}
+
+.journey-item { margin-bottom: 50px; }
+.journey-item span { color: var(--spider-blue); }
+.journey-item h3 { margin: 15px 0; color: var(--spider-red); }
+
+.stack-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+}
+
+.skills {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+}
+
+.chart-container {
+    flex: 1;
+    min-width: 300px;
+    background: var(--terminal-bg);
+    border: 1px solid rgba(220,38,38,.3);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.skills div {
+    padding: 30px;
+    background: #0B1F3A;
+    border: 1px solid rgba(220,38,38,.3);
+    border-radius: 15px;
+    text-align: center;
+    transition: .3s;
+}
+
+.skills div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(220,38,38,.4);
+}
+
+/* =========================
+   FUTURO & FOOTER
+========================= */
+#future { text-align: center; }
+#future h1 {
+    font-size: 70px;
+    color: var(--spider-red);
+    margin: 30px 0;
+}
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #0B1F3A;
+    color: #64748b;
+}
+
+/* =========================
+   ANIMAÇÃO
+========================= */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   SESSÃO SOBRE (FOTO + CV)
+========================= */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap; /* Ajuda a ir para baixo no celular */
+}
+
+/* Moldura Tech da Foto */
+.profile-frame {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    border: 2px solid var(--spider-blue);
+    padding: 10px;
+    box-shadow: 0 0 25px rgba(37, 99, 235, 0.3);
+    flex-shrink: 0;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    /* Deixa a foto um pouco mais cinza para combinar com o fundo */
+    filter: grayscale(30%) contrast(110%);
+    transition: 0.3s;
+}
+
+.profile-frame:hover .profile-pic {
+    /* Ao passar o mouse, a cor volta ao normal */
+    filter: grayscale(0%) contrast(100%);
+}
+
+/* Efeito de Scanline em cima da foto (Visual hacker) */
+.frame-overlay {
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border-radius: 12px;
+    background: linear-gradient(rgba(37,99,235,0.1) 50%, transparent 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Ajusta o terminal para preencher o resto do espaço */
+#sobre .terminal-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Botão do Currículo */
+.cv-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--spider-light-blue);
+    border: 1px solid var(--spider-blue);
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: inherit;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cv-button:hover {
+    background: var(--spider-blue);
+    color: white;
+    box-shadow: 0 0 20px var(--spider-blue);
+}
+
+/* Responsividade: No celular a foto vai para cima e fica no centro */
+@media(max-width: 800px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-frame {
+        margin: 0 auto;
+    }
+}

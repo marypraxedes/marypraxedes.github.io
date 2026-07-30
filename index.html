@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maryane.dev | PDI & Developer Journey</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Fonte Tech -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Chart.js para a Teia de Habilidades -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            maryane<span>.dev</span>
+        </div>
+        <ul>
+            <li><a href="#sobre">01. ABOUT</a></li>
+            <li><a href="#jornada">02. JOURNEY</a></li>
+            <li><a href="#stack">03. STACK</a></li>
+            <li><a href="#pdi-goals">04. PDI</a></li>
+            <li><a href="#projects">05. PROJECTS</a></li>
+        </ul>
+    </nav>
+
+    <!-- Efeito de fundo -->
+    <div class="grid-background"></div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="terminal-animation">
+                <p id="terminal-text"></p>
+            </div>
+            <h1>maryane<span>.dev</span></h1>
+            <h2>Software Engineer Student</h2>
+            <p class="subtitle">
+                Backend Developer em formação | Cybersecurity | DevSecOps
+            </p>
+            <p class="quote">
+                "Com grandes códigos, vêm grandes responsabilidades."
+            </p>
+            <a href="#sobre" class="enter-button">ENTER JOURNEY ↓</a>
+        </div>
+    </section>
+
+    <!-- SOBRE (Com Foto e Currículo) -->
+    <section id="sobre">
+        <div class="section-title">
+            <span>01.</span> WHO AM I?
+        </div>
+
+        <div class="about-container">
+            <!-- Foto de Perfil (Coloque sua foto na mesma pasta ou na pasta de imagens) -->
+            <div class="profile-frame">
+                <img src="sua-foto.jpg" alt="Maryane Praxedes" class="profile-pic">
+                <div class="frame-overlay"></div>
+            </div>
+
+            <!-- Terminal Box com Informações e Botão -->
+            <div class="terminal-box">
+                <p>$ whoami</p><br>
+                <p>Nome: Maryane Praxedes</p>
+                <p>Área: Desenvolvimento Backend</p>
+                <p>Stack principal: Java | Spring Boot | MySQL</p>
+                <p>Foco: Tecnologia segura e soluções eficientes</p>
+                
+                <!-- Botão de Download do Currículo -->
+                <a href="Curriculo_Maryane_Praxedes.pdf" target="_blank" class="cv-button">
+                    [↓] DECRYPT_CV.PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JORNADA -->
+    <section id="jornada">
+        <div class="section-title">
+            <span>02.</span> MY JOURNEY
+        </div>
+        <div class="timeline">
+            <div class="journey-item">
+                <span>2016 - 2018</span>
+                <h3>🎨 Produção Multimídia</h3>
+                <p>Minha base criativa, desenvolvendo comunicação, design e visão digital.</p>
+            </div>
+            <div class="journey-item">
+                <span>2021</span>
+                <h3>📢 Marketing Digital</h3>
+                <p>Experiência profissional com estratégia, conteúdo e relacionamento.</p>
+            </div>
+            <div class="journey-item">
+                <span>2026</span>
+                <h3>💻 Engenharia de Software</h3>
+                <p>Nova fase dedicada ao desenvolvimento de software.</p>
+            </div>
+            <div class="journey-item">
+                <span>2026</span>
+                <h3>☕ Java FullStack Generation</h3>
+                <p>Projetos reais utilizando Java, Spring Boot e banco de dados.</p>
+            </div>
+            <div class="journey-item">
+                <span>2026</span>
+                <h3>🔐 Hackers do Bem - DevSecOps</h3>
+                <p>Formação em segurança e desenvolvimento seguro.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STACK COM O GRÁFICO DE TEIA -->
+    <section id="stack">
+        <div class="section-title">
+            <span>03.</span> TECH ARSENAL (SPIDER-WEB)
+        </div>
+        
+        <div class="stack-container">
+            <div class="skills">
+                <div>☕ Java</div>
+                <div>🚀 Spring Boot</div>
+                <div>🗄️ MySQL</div>
+                <div>🐙 Git/GitHub</div>
+                <div>🐧 Linux</div>
+                <div>🔐 Cybersecurity</div>
+            </div>
+            <div class="chart-container">
+                <canvas id="spiderChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: METAS DO PDI (Com DevSecOps) -->
+    <section id="pdi-goals">
+        <div class="section-title">
+            <span>04.</span> PDI GOALS
+        </div>
+        <div class="terminal-box">
+            <p>> Insira sua próxima meta de desenvolvimento (Cuidado com o Sentido Aranha!)</p>
+            <form id="goal-form" style="margin-top: 20px;">
+                <input type="text" id="goal-input" placeholder="Ex: Terminar módulo de API Rest em Java" autocomplete="off">
+                <button type="submit">Adicionar Meta</button>
+            </form>
+            
+            <!-- Alerta do Sentido Aranha escondido -->
+            <div id="spider-sense-alert" style="display: none; color: #DC2626; margin-top: 15px; font-weight: bold; border: 1px dashed #DC2626; padding: 10px;">
+                ⚠️ SENTIDO ARANHA DISPARADO: Tentativa de injeção de script (XSS) bloqueada!
+            </div>
+
+            <ul id="goal-list" style="margin-top: 30px; list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px; color: #60a5fa;">[✓] Iniciar transição de carreira</li>
+                <li style="margin-bottom: 10px; color: #60a5fa;">[✓] Entrar na Engenharia de Software</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <!-- PROJETOS (Conectado via API do GitHub) -->
+    <section id="projects">
+        <div class="section-title">
+            <span>05.</span> PROJECTS (GITHUB API)
+        </div>
+        
+        <div class="projects-terminal">
+            <p>/projects --source=github</p><br>
+            
+            <!-- Aqui é onde os projetos vão aparecer -->
+            <div id="github-repos">
+                <p style="color: #94a3b8;">> Conectando aos servidores do GitHub... 🕷️</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- FUTURO -->
+    <section id="future">
+        <div class="section-title">
+            <span>06.</span> NEXT LEVEL
+        </div>
+        <h2>Building my future as:</h2>
+        <h1>BACKEND DEVELOPER</h1>
+        <p>Unindo desenvolvimento, engenharia de software e segurança.</p>
+    </section>
+
+    <footer>
+        <p>© 2026 Maryane Praxedes | maryane.dev 🕷️</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
