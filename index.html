@@ -1,191 +1,561 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maryane.dev | PDI & Developer Journey</title>
+    <title>Maryane.dev | Developer Journey</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- Fonte Tech -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
     <!-- Chart.js para a Teia de Habilidades -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="logo">
+    <!-- NAVBAR (Pílula Flutuante) -->
+    <nav class="navbar" id="main-nav" style="display: none;">
+        <a href="#intro" class="logo nav-link" style="text-decoration: none; color: inherit;">
             maryane<span>.dev</span>
-        </div>
+        </a>
         <ul>
-            <li><a href="#sobre">01. ABOUT</a></li>
-            <li><a href="#jornada">02. JOURNEY</a></li>
-            <li><a href="#stack">03. STACK</a></li>
-            <li><a href="#pdi-goals">04. PDI</a></li>
-            <li><a href="#projects">05. PROJECTS</a></li>
+            <li><a href="#home" class="nav-link">01. HOME</a></li>
+            <li><a href="#jornada" class="nav-link">02. JOURNEY</a></li>
+            <li><a href="#stack" class="nav-link">03. STACK</a></li>
+            <li><a href="#pdi-goals" class="nav-link">04. PDI</a></li>
+            <li><a href="#projects" class="nav-link">05. PROJECTS</a></li>
         </ul>
     </nav>
+
+    <!-- HUD TELEMETRY SIDEBAR (Painel Lateral Direito Fixo) -->
+    <aside class="hud-sidebar" id="hud-sidebar" style="display: none;">
+        
+        <!-- BOX 1: TELEMETRIA & CONTATOS -->
+        <div class="terminal-box" style="padding: 15px; font-size: 13px; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(37, 99, 235, 0.4); backdrop-filter: blur(10px); margin-bottom: 15px;">
+            <p style="color: #10B981; margin-bottom: 10px; font-weight: bold; border-bottom: 1px dashed rgba(16, 185, 129, 0.3); padding-bottom: 6px;">[SYS_TELEMETRY]</p>
+            
+            <!-- Localização -->
+            <div style="margin-bottom: 12px;">
+                <span style="color: #60a5fa; display: block; font-size: 11px; margin-bottom: 2px;">// LOCALIZAÇÃO</span>
+                <span style="color: white; font-weight: bold;">📍 Brasil (Remote Ready)</span>
+            </div>
+
+            <!-- O que está aprendendo agora -->
+            <div style="margin-bottom: 12px;">
+                <span style="color: #60a5fa; display: block; font-size: 11px; margin-bottom: 2px;">// CURRENT FOCUS</span>
+                <span style="color: #f87171; font-weight: bold; line-height: 1.4; display: block;">☕ Java | Spring | HTML</span>
+            </div>
+
+            <!-- Contatos -->
+            <div>
+                <span style="color: #60a5fa; display: block; font-size: 11px; margin-bottom: 6px;">// CONTATOS & REDES</span>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <a href="https://linkedin.com/in/marypraxedes" target="_blank" style="color: #e2e8f0; text-decoration: none; font-size: 12px; display: flex; align-items: center; gap: 6px; transition: 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#e2e8f0'">
+                        🔗 LinkedIn
+                    </a>
+                    <a href="https://github.com/marypraxedes" target="_blank" style="color: #e2e8f0; text-decoration: none; font-size: 12px; display: flex; align-items: center; gap: 6px; transition: 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#e2e8f0'">
+                        <svg height="14" viewBox="0 0 16 16" version="1.1" width="14" fill="currentColor">
+                            <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                        </svg>
+                           GitHub
+                    </a>
+                    <a href="mailto:mary.praxedes@icloud.com" style="color: #e2e8f0; text-decoration: none; font-size: 12px; display: flex; align-items: center; gap: 6px; transition: 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#e2e8f0'">
+                        ✉️ E-mail
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOX 2: GITHUB ACTIVITY GRAPH -->
+        <div class="terminal-box" style="padding: 15px; font-size: 13px; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(37, 99, 235, 0.4); backdrop-filter: blur(10px); margin-bottom: 15px;">
+            <p style="color: #60a5fa; margin-bottom: 10px; font-weight: bold; border-bottom: 1px dashed rgba(37, 99, 235, 0.3); padding-bottom: 6px;">[GITHUB_ACTIVITY]</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 4px; color: #94a3b8; font-size: 12px; margin-bottom: 10px;">
+                <p>user: <span style="color: white; font-family: monospace;">marypraxedes</span></p>
+                <p>status: <span style="color: #10B981; font-family: monospace;">🟢 Live Feed</span></p>
+            </div>
+
+            <!-- Gráfico de Atividades Real do GitHub (Estilizado com as cores do seu tema) -->
+            <div style="text-align: center; overflow: hidden; border-radius: 6px;">
+                <img src="https://github-readme-activity-graph.vercel.app/graph?username=marypraxedes&theme=tokyo-night&hide_border=true&color=3b82f6&line=3b82f6&point=10b981&area=true&bg_color=0f172a" alt="GitHub Activity Graph" style="width: 100%; display: block;">
+            </div>
+            
+            <div style="text-align: center; margin-top: 10px;">
+                <a href="https://github.com/marypraxedes" target="_blank" style="color: #60a5fa; font-size: 11px; text-decoration: none;">
+                    [ Ver perfil completo no GitHub ↗ ]
+                </a>
+            </div>
+        </div>
+
+        <!-- BOX 3: LICENSE / COPYRIGHT -->
+        <div class="terminal-box" style="padding: 12px; font-size: 11px; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(37, 99, 235, 0.4); backdrop-filter: blur(10px); text-align: center; color: #94a3b8;">
+            <p>© 2026 Maryane Praxedes</p>
+            <p style="color: #60a5fa; margin-top: 3px;">maryane.dev 🕷️ </p>
+        </div>
+
+    </aside>
 
     <!-- Efeito de fundo -->
     <div class="grid-background"></div>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="terminal-animation">
-                <p id="terminal-text"></p>
+    <!-- TELA 00: INTRO / BOOT SCREEN (Tela Inicial) -->
+    <section id="intro" class="pdi-view active" style="flex-direction: column; justify-content: center; align-items: center; min-height: 100vh;">
+        <div class="terminal-box" style="max-width: 600px; width: 90%; padding: 40px; text-align: left;">
+            <p style="color: #10B981; margin-bottom: 15px;">[SYSTEM: BOOT SEQUENCE INITIALIZED]</p>
+            
+            <!-- Onde os logs do boot vão aparecer dinamicamente -->
+            <div id="boot-logs" style="font-family: inherit; font-size: 14px; margin-bottom: 25px; min-height: 130px;">
+                <!-- Preenchido via JavaScript -->
             </div>
-            <h1>maryane<span>.dev</span></h1>
-            <h2>Software Engineer Student</h2>
-            <p class="subtitle">
-                Backend Developer em formação | Cybersecurity | DevSecOps
-            </p>
-            <p class="quote">
-                "Com grandes códigos, vêm grandes responsabilidades."
-            </p>
-            <a href="#sobre" class="enter-button">ENTER JOURNEY ↓</a>
-        </div>
-    </section>
-
-    <!-- SOBRE (Com Foto e Currículo) -->
-    <section id="sobre">
-        <div class="section-title">
-            <span>01.</span> WHO AM I?
-        </div>
-
-        <div class="about-container">
-            <!-- Foto de Perfil (Coloque sua foto na mesma pasta ou na pasta de imagens) -->
-            <div class="profile-frame">
-                <img src="sua-foto.jpg" alt="Maryane Praxedes" class="profile-pic">
-                <div class="frame-overlay"></div>
-            </div>
-
-            <!-- Terminal Box com Informações e Botão -->
-            <div class="terminal-box">
-                <p>$ whoami</p><br>
-                <p>Nome: Maryane Praxedes</p>
-                <p>Área: Desenvolvimento Backend</p>
-                <p>Stack principal: Java | Spring Boot | MySQL</p>
-                <p>Foco: Tecnologia segura e soluções eficientes</p>
+            
+            <!-- Conteúdo que surge APÓS o boot completo (inicialmente invisível) -->
+            <div id="boot-action" style="text-align: center; opacity: 0; transition: opacity 0.8s ease; pointer-events: none;">
+                <h1 style="font-size: 36px; color: white; margin-bottom: 10px; letter-spacing: 2px;">
+                    maryane<span>.dev</span>
+                </h1>
                 
-                <!-- Botão de Download do Currículo -->
-                <a href="Curriculo_Maryane_Praxedes.pdf" target="_blank" class="cv-button">
-                    [↓] DECRYPT_CV.PDF
+                <p style="color: var(--spider-light-blue); font-size: 16px; margin-bottom: 20px;">
+                    Software Engineer Student & Backend Developer
+                </p>
+
+                <p style="color: #94a3b8; font-size: 14px; line-height: 1.6; margin-bottom: 30px;">
+                    > <em>"Com grandes códigos, vêm grandes responsabilidades. Bem-vindo ao meu site."</em>
+                </p>
+
+                <a href="#home" id="enter-journey-btn" class="cv-button" style="font-size: 16px; padding: 15px 30px; display: inline-block;">
+                    [ > ENTER JOURNEY ]
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- JORNADA -->
-    <section id="jornada">
+    <!-- TELA 01: HOME / ABOUT (OPERATOR DOSSIER) -->
+    <section id="home" class="pdi-view">
         <div class="section-title">
-            <span>02.</span> MY JOURNEY
-        </div>
-        <div class="timeline">
-            <div class="journey-item">
-                <span>2016 - 2018</span>
-                <h3>🎨 Produção Multimídia</h3>
-                <p>Minha base criativa, desenvolvendo comunicação, design e visão digital.</p>
-            </div>
-            <div class="journey-item">
-                <span>2021</span>
-                <h3>📢 Marketing Digital</h3>
-                <p>Experiência profissional com estratégia, conteúdo e relacionamento.</p>
-            </div>
-            <div class="journey-item">
-                <span>2026</span>
-                <h3>💻 Engenharia de Software</h3>
-                <p>Nova fase dedicada ao desenvolvimento de software.</p>
-            </div>
-            <div class="journey-item">
-                <span>2026</span>
-                <h3>☕ Java FullStack Generation</h3>
-                <p>Projetos reais utilizando Java, Spring Boot e banco de dados.</p>
-            </div>
-            <div class="journey-item">
-                <span>2026</span>
-                <h3>🔐 Hackers do Bem - DevSecOps</h3>
-                <p>Formação em segurança e desenvolvimento seguro.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- STACK COM O GRÁFICO DE TEIA -->
-    <section id="stack">
-        <div class="section-title">
-            <span>03.</span> TECH ARSENAL (SPIDER-WEB)
+            <span>01.</span> OPERATOR_DOSSIER // HOME
         </div>
         
-        <div class="stack-container">
-            <div class="skills">
-                <div>☕ Java</div>
-                <div>🚀 Spring Boot</div>
-                <div>🗄️ MySQL</div>
-                <div>🐙 Git/GitHub</div>
-                <div>🐧 Linux</div>
-                <div>🔐 Cybersecurity</div>
+        <div class="about-container">
+            <!-- Foto com Moldura Tech -->
+            <div class="profile-frame">
+                <img src="sua-foto.jpg" alt="Maryane Praxedes" class="profile-pic">
+                <div class="frame-overlay"></div>
             </div>
-            <div class="chart-container">
-                <canvas id="spiderChart"></canvas>
+
+            <!-- Terminal / Conteúdo da Home -->
+            <div class="terminal-box">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px dashed rgba(37,99,235,0.3); padding-bottom: 8px;">
+                    <span style="color: #10B981; font-size: 13px; font-weight: bold;">[STATUS: 🟢 OPEN TO WORK // AVAILABLE FOR OPPORTUNITIES]</span>
+                    <span style="color: #60a5fa; font-size: 12px;">v2.0.26</span>
+                </div>
+                
+                <p>$ whoami --operator-profile</p><br>
+                
+                <h1 style="font-size: 28px; color: white; margin-bottom: 8px; letter-spacing: 2px;">
+                    MARYANE <span style="color: var(--spider-red);">PRAXEDES</span>
+                </h1>
+                
+                <p style="color: var(--spider-light-blue); font-size: 15px; margin-bottom: 15px; font-weight: bold;">
+                    Software Engineering Student & Backend Developer
+                </p>
+
+                <!-- História de Origem / Bio Expandida -->
+                <div style="color: #94a3b8; font-size: 13px; line-height: 1.6; margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px;">
+                    <p>> <em>"Curiosa desde os 4 anos — quando ganhei meu primeiro computador e comecei a desmontar, formatar e entender sistemas. Hoje, monto minhas próprias máquinas e faço upgrades."</em></p>
+                    
+                    <p>> Com pós-graduação em Marketing Digital (trazendo forte base em comunicação, organização e foco no cliente), fiz a transição definitiva para a tecnologia. Atualmente estudo Engenharia de Software, sou formada em DevSecOps pelo programa <strong>Hackers do Bem</strong> e curso o bootcamp Java FullStack na <strong>Generation Brasil</strong>.</p>
+                    
+                    <p>> <em>"Buscando minha primeira oportunidade como desenvolvedora para aplicar minha curiosidade técnica, paixão por código limpo e vontade constante de evoluir."</em></p>
+                </div>
+
+                <!-- Telemetria / Painel de Métricas Rápidas -->
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; background: rgba(15, 23, 42, 0.6); padding: 12px; border-radius: 8px; border: 1px solid rgba(37, 99, 235, 0.2);">
+                    <div>
+                        <span style="color: #60a5fa; font-size: 11px; display: block;">CORE ARCHITECTURE</span>
+                        <span style="color: white; font-size: 13px; font-weight: bold;">Java / Spring Boot</span>
+                    </div>
+                    <div>
+                        <span style="color: #60a5fa; font-size: 11px; display: block;">SECURITY & OPS</span>
+                        <span style="color: white; font-size: 13px; font-weight: bold;">Docker & DevSecOps</span>
+                    </div>
+                </div>
+
+                <!-- FEATURED PROJECT: HATAKE GAMES -->
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(220, 38, 38, 0.4); padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span style="color: var(--spider-red); font-size: 12px; font-weight: bold;">[FEATURED_PROJECT // BLOCK 01]</span>
+                        <span style="color: #10B981; font-size: 11px;">Status: Online 🚀</span>
+                    </div>
+                    <h3 style="color: white; font-size: 16px; margin-bottom: 6px;">🎮 Hatake Games (E-commerce System)</h3>
+                    <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 12px;">
+                        Sistema de e-commerce de jogos desenvolvido em Java, focado na estruturação de regras de negócio, modelagem de dados e gerenciamento de produtos com código limpo e escalável.
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                            <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 10px; padding: 3px 6px; border-radius: 4px;">Java</span>
+                            <span style="background: rgba(37,99,235,0.2); color: #60a5fa; font-size: 10px; padding: 3px 6px; border-radius: 4px;">Backend Architecture</span>
+                            <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 10px; padding: 3px 6px; border-radius: 4px;">Database</span>
+                        </div>
+                        <a href="https://github.com/marypraxedes/projeto_final_bloco_01" target="_blank" class="cv-button" style="margin-top: 0; font-size: 12px; padding: 6px 12px; display: inline-flex; align-items: center; gap: 4px; text-decoration: none;">
+                            [ REPO ↗ ]
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Botões de Ação Rápida -->
+                <div class="about-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <a href="Curriculo_Maryane_Praxedes.pdf" target="_blank" class="cv-button" style="margin-top: 0;">
+                        [↓] DECRYPT_CV.PDF
+                    </a>
+                    <a href="https://linkedin.com/in/marypraxedes" target="_blank" class="social-button">
+                        [ in ] LINKEDIN
+                    </a>
+                    <a href="https://github.com/marypraxedes" target="_blank" class="social-button" style="display: inline-flex; align-items: center; gap: 8px;">
+                        <svg height="16" viewBox="0 0 16 16" version="1.1" width="16" fill="currentColor">
+                            <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                        </svg>
+                        GITHUB
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: METAS DO PDI (Com DevSecOps) -->
-    <section id="pdi-goals">
+    <!-- TELA 02: JORNADA (SYSTEM STATUS / LOGS) -->
+    <section id="jornada" class="pdi-view">
         <div class="section-title">
-            <span>04.</span> PDI GOALS
-        </div>
-        <div class="terminal-box">
-            <p>> Insira sua próxima meta de desenvolvimento (Cuidado com o Sentido Aranha!)</p>
-            <form id="goal-form" style="margin-top: 20px;">
-                <input type="text" id="goal-input" placeholder="Ex: Terminar módulo de API Rest em Java" autocomplete="off">
-                <button type="submit">Adicionar Meta</button>
-            </form>
-            
-            <!-- Alerta do Sentido Aranha escondido -->
-            <div id="spider-sense-alert" style="display: none; color: #DC2626; margin-top: 15px; font-weight: bold; border: 1px dashed #DC2626; padding: 10px;">
-                ⚠️ SENTIDO ARANHA DISPARADO: Tentativa de injeção de script (XSS) bloqueada!
-            </div>
-
-            <ul id="goal-list" style="margin-top: 30px; list-style: none; padding: 0;">
-                <li style="margin-bottom: 10px; color: #60a5fa;">[✓] Iniciar transição de carreira</li>
-                <li style="margin-bottom: 10px; color: #60a5fa;">[✓] Entrar na Engenharia de Software</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- PROJETOS -->
-    <!-- PROJETOS (Conectado via API do GitHub) -->
-    <section id="projects">
-        <div class="section-title">
-            <span>05.</span> PROJECTS (GITHUB API)
+            <span>02.</span> SYSTEM_STATUS // JOURNEY_LOGS
         </div>
         
-        <div class="projects-terminal">
-            <p>/projects --source=github</p><br>
-            
-            <!-- Aqui é onde os projetos vão aparecer -->
-            <div id="github-repos">
-                <p style="color: #94a3b8;">> Conectando aos servidores do GitHub... 🕷️</p>
+        <div class="timeline" style="border-left: 2px dashed #2563EB; padding-left: 30px; margin-top: 20px;">
+
+            <!-- Bloco 01: Creative Base -->
+            <div class="journey-item" style="background: var(--terminal-bg); border: 1px solid rgba(37,99,235,0.3); padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span style="color: #2563EB; font-size: 12px;">[STATUS: <span style="color: #10B981;">ONLINE</span>] | 2016 - 2021</span>
+                    <span style="color: #94a3b8; font-size: 11px;">log_id: #core_creative</span>
+                </div>
+                <h3 style="color: white; margin-bottom: 8px;">🎨 Creative & Strategy Core</h3>
+                <p style="color: #94a3b8; font-size: 14px; margin-bottom: 12px;">
+                    Produção Multimídia & Marketing Digital. Construção de uma base sólida em UX, comunicação estratégica e visão de produto digital.
+                </p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span style="background: rgba(37,99,235,0.2); color: #60a5fa; font-size: 11px; padding: 4px 8px; border-radius: 4px;">UX/UI Design</span>
+                    <span style="background: rgba(37,99,235,0.2); color: #60a5fa; font-size: 11px; padding: 4px 8px; border-radius: 4px;">Estratégia de Produto</span>
+                    <span style="background: rgba(37,99,235,0.2); color: #60a5fa; font-size: 11px; padding: 4px 8px; border-radius: 4px;">Comunicação</span>
+                </div>
             </div>
-            
+
+            <!-- Bloco 02: Software Engineering -->
+            <div class="journey-item" style="background: var(--terminal-bg); border: 1px solid rgba(220,38,38,0.4); padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span style="color: #2563EB; font-size: 12px;">[STATUS: <span style="color: #F59E0B;">PROCESSING // 1º PERÍODO</span>] | 2026</span>
+                    <span style="color: #94a3b8; font-size: 11px;">log_id: #uninter_eng</span>
+                </div>
+                <h3 style="color: var(--spider-red); margin-bottom: 8px;">💻 Software Engineering (Uninter)</h3>
+                <p style="color: #94a3b8; font-size: 14px; margin-bottom: 12px;">
+                    Imersão nos fundamentos de engenharia de software, arquitetura de sistemas, lógica avançada e estruturação de dados.
+                </p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 11px; padding: 4px 8px; border-radius: 4px;">Algoritmos</span>
+                    <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 11px; padding: 4px 8px; border-radius: 4px;">Arquitetura</span>
+                    <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 11px; padding: 4px 8px; border-radius: 4px;">POO</span>
+                </div>
+            </div>
+
+            <!-- Bloco 03: Generation Java FullStack -->
+            <div class="journey-item" style="background: var(--terminal-bg); border: 1px solid rgba(220,38,38,0.4); padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span style="color: #2563EB; font-size: 12px;">[STATUS: <span style="color: #F59E0B;">ACTIVE // BOOTCAMP</span>] | 2026</span>
+                    <span style="color: #94a3b8; font-size: 11px;">log_id: #generation_java</span>
+                </div>
+                <h3 style="color: var(--spider-red); margin-bottom: 8px;">☕ Java FullStack (Generation Brasil)</h3>
+                <p style="color: #94a3b8; font-size: 14px; margin-bottom: 12px;">
+                    Desenvolvimento intensivo de aplicações Back-end robustas, criação de APIs RESTful estruturadas e persistência de dados.
+                </p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 11px; padding: 4px 8px; border-radius: 4px;">Java</span>
+                    <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 11px; padding: 4px 8px; border-radius: 4px;">Spring Boot</span>
+                    <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 11px; padding: 4px 8px; border-radius: 4px;">MySQL</span>
+                    <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 11px; padding: 4px 8px; border-radius: 4px;">API RESTful</span>
+                </div>
+            </div>
+
+            <!-- Bloco 04: Hackers do Bem -->
+            <div class="journey-item" style="background: var(--terminal-bg); border: 1px solid rgba(16, 185, 129, 0.4); padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span style="color: #2563EB; font-size: 12px;">[STATUS: <span style="color: #10B981;">COMPLETED // SECURE</span>] | 2026</span>
+                    <span style="color: #94a3b8; font-size: 11px;">log_id: #hackers_secure</span>
+                </div>
+                <h3 style="color: #10B981; margin-bottom: 8px;">🔐 DevSecOps & Cybersecurity (Hackers do Bem)</h3>
+                <p style="color: #94a3b8; font-size: 14px; margin-bottom: 12px;">
+                    Especialização em segurança da informação, análise de vulnerabilidades, blindagem de código e protocolos defensivos.
+                </p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 11px; padding: 4px 8px; border-radius: 4px;">DevSecOps</span>
+                    <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 11px; padding: 4px 8px; border-radius: 4px;">Code Security</span>
+                    <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 11px; padding: 4px 8px; border-radius: 4px;">Linux</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- FUTURO -->
-    <section id="future">
+    <!-- TELA 03: TECH ARSENAL (SPIDER-WEB / STACK) -->
+    <section id="stack" class="pdi-view">
         <div class="section-title">
-            <span>06.</span> NEXT LEVEL
+            <span>03.</span> TECH_ARSENAL // SPIDER_WEB
         </div>
-        <h2>Building my future as:</h2>
-        <h1>BACKEND DEVELOPER</h1>
-        <p>Unindo desenvolvimento, engenharia de software e segurança.</p>
+        
+        <div class="stack-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; margin-top: 20px;">
+            
+            <!-- Módulos de Tecnologias Categorizados -->
+            <div class="terminal-box" style="margin: 0; padding: 25px;">
+                <p style="color: #10B981; margin-bottom: 15px;">[DIAGNOSTIC: MODULES LOADED]</p>
+                
+                <!-- Languages & Core -->
+                <div style="margin-bottom: 15px;">
+                    <p style="color: #60a5fa; font-size: 12px; margin-bottom: 5px;">// LANGUAGES & CORE</p>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span style="background: rgba(220,38,38,0.2); color: #f87171; border: 1px solid var(--spider-red); padding: 6px 12px; border-radius: 6px; font-size: 13px;">☕ Java</span>
+                        <span style="background: rgba(37,99,235,0.2); color: #60a5fa; border: 1px solid #2563EB; padding: 6px 12px; border-radius: 6px; font-size: 13px;">🐍 Python</span>
+                        <span style="background: rgba(245,158,11,0.2); color: #fbbf24; border: 1px solid #f59e0b; padding: 6px 12px; border-radius: 6px; font-size: 13px;">💛 JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Backend & Database -->
+                <div style="margin-bottom: 15px;">
+                    <p style="color: #60a5fa; font-size: 12px; margin-bottom: 5px;">// BACKEND & DATABASE</p>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span style="background: rgba(220,38,38,0.2); color: #f87171; border: 1px solid var(--spider-red); padding: 6px 12px; border-radius: 6px; font-size: 13px;">🚀 Spring Boot</span>
+                        <span style="background: rgba(37,99,235,0.2); color: #60a5fa; border: 1px solid #2563EB; padding: 6px 12px; border-radius: 6px; font-size: 13px;">🗄️ MySQL</span>
+                    </div>
+                </div>
+
+                <!-- DevOps, CI/CD & Security -->
+                <div style="margin-bottom: 15px;">
+                    <p style="color: #60a5fa; font-size: 12px; margin-bottom: 5px;">// DEVOPS, CI/CD & SECURITY</p>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span style="background: rgba(37,99,235,0.2); color: #60a5fa; border: 1px solid #2563EB; padding: 6px 12px; border-radius: 6px; font-size: 13px;">🐳 Docker</span>
+                        <span style="background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid #10B981; padding: 6px 12px; border-radius: 6px; font-size: 13px;">⚡ CI/CD</span>
+                        <span style="background: rgba(234,88,12,0.2); color: #fb923c; border: 1px solid #ea580c; padding: 6px 12px; border-radius: 6px; font-size: 13px;">🦊 GitLab</span>
+                        <span style="background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid #10B981; padding: 6px 12px; border-radius: 6px; font-size: 13px;">🔐 DevSecOps</span>
+                        <span style="background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid #10B981; padding: 6px 12px; border-radius: 6px; font-size: 13px;">🐧 Linux</span>
+                    </div>
+                </div>
+
+                <!-- IDEs & Tools -->
+                <div style="margin-bottom: 15px;">
+                    <p style="color: #60a5fa; font-size: 12px; margin-bottom: 5px;">// IDEs & TOOLS</p>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span style="background: rgba(37,99,235,0.2); color: #60a5fa; border: 1px solid #2563EB; padding: 6px 12px; border-radius: 6px; font-size: 13px;">💻 VS Code</span>
+                        <span style="background: rgba(220,38,38,0.2); color: #f87171; border: 1px solid var(--spider-red); padding: 6px 12px; border-radius: 6px; font-size: 13px;">⚙️ IntelliJ IDEA</span>
+                        <span style="background: rgba(147,51,234,0.2); color: #c084fc; border: 1px solid #9333ea; padding: 6px 12px; border-radius: 6px; font-size: 13px;">🔌 Insomnia</span>
+                    </div>
+                </div>
+
+                <!-- Workflow -->
+                <div>
+                    <p style="color: #60a5fa; font-size: 12px; margin-bottom: 5px;">// WORKFLOW</p>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span style="background: rgba(148,163,184,0.2); color: #cbd5e1; border: 1px solid #64748b; padding: 6px 12px; border-radius: 6px; font-size: 13px;">🐙 Git & GitHub</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gráfico de Teia (Radar Chart) -->
+            <div class="chart-container" style="background: var(--terminal-bg); border: 1px solid rgba(37,99,235,0.3); padding: 20px; border-radius: 12px; display: flex; justify-content: center; align-items: center;">
+                <canvas id="spiderChart" style="max-height: 320px;"></canvas>
+            </div>
+
+        </div>
     </section>
 
-    <footer>
-        <p>© 2026 Maryane Praxedes | maryane.dev 🕷️</p>
-    </footer>
+    <!-- TELA 04: PDI (CAREER ROADMAP & GOALS) -->
+    <section id="pdi-goals" class="pdi-view">
+        <div class="section-title">
+            <span>04.</span> PDI // CAREER_ROADMAP
+        </div>
+        
+        <div class="terminal-box" style="padding: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <div>
+                    <p style="color: #60a5fa; margin-bottom: 4px;">> system_pdi --load-operator-roadmap</p>
+                    <p style="color: #94a3b8; font-size: 13px;">Plano de Desenvolvimento Individual e metas de evolução técnica da operadora.</p>
+                </div>
+                <span style="color: #10B981; font-size: 12px; background: rgba(16,185,129,0.1); border: 1px solid #10B981; padding: 4px 10px; border-radius: 4px; font-family: monospace;">🔒 SECURE / READ-ONLY</span>
+            </div>
+
+            <div style="border-top: 1px dashed rgba(37,99,235,0.3); margin: 20px 0;"></div>
+
+            <!-- Grid de Fases do PDI -->
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                
+                <!-- FASE 1: FUNDAMENTOS E LÓGICA (Concluído) -->
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(16, 185, 129, 0.4); padding: 20px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span style="color: #10B981; font-size: 12px; font-weight: bold;">[PHASE 01: FOUNDATIONS & LOGIC]</span>
+                        <span style="color: #10B981; font-size: 11px;">✅ COMPLETED</span>
+                    </div>
+                    <p style="color: white; font-size: 15px; font-weight: bold; margin-bottom: 6px;">Lógica de Programação, Hardware & Primeiros Passos</p>
+                    <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 12px;">
+                        Compreensão profunda de arquitetura de computadores, formatação, manutenção de hardware e lógica estruturada aplicada em projetos iniciais.
+                    </p>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 10px; padding: 3px 8px; border-radius: 4px;">Hardware Setup</span>
+                        <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 10px; padding: 3px 8px; border-radius: 4px;">JavaScript (Lógica)</span>
+                        <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 10px; padding: 3px 8px; border-radius: 4px;">Git & GitHub</span>
+                    </div>
+                </div>
+
+                <!-- FASE 2: BACKEND E ECOSSISTEMA JAVA (Em Andamento) -->
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(37, 99, 235, 0.5); padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(37,99,235,0.1);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span style="color: #60a5fa; font-size: 12px; font-weight: bold;">[PHASE 02: BACKEND SPECIALIZATION]</span>
+                        <span style="color: #f59e0b; font-size: 11px; font-family: monospace;">⚡ IN_PROGRESS (Current)</span>
+                    </div>
+                    <p style="color: white; font-size: 15px; font-weight: bold; margin-bottom: 6px;">Java FullStack, Spring Boot & APIs RESTful</p>
+                    <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 12px;">
+                        Desenvolvimento de APIs robustas no bootcamp da Generation Brasil, modelagem de bancos de dados relacionais (MySQL), documentação com Swagger e deploy em produção (Render).
+                    </p>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 10px; padding: 3px 8px; border-radius: 4px;">Java / Spring Boot</span>
+                        <span style="background: rgba(37,99,235,0.2); color: #60a5fa; font-size: 10px; padding: 3px 8px; border-radius: 4px;">MySQL</span>
+                        <span style="background: rgba(37,99,235,0.2); color: #60a5fa; font-size: 10px; padding: 3px 8px; border-radius: 4px;">Swagger UI</span>
+                        <span style="background: rgba(37,99,235,0.2); color: #60a5fa; font-size: 10px; padding: 3px 8px; border-radius: 4px;">IntelliJ / Insomnia</span>
+                    </div>
+                </div>
+
+                <!-- FASE 3: DEVOPS, SEGURANÇA E CLOUD (Foco Atual / Próximo Passo) -->
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(220, 38, 38, 0.4); padding: 20px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span style="color: var(--spider-red); font-size: 12px; font-weight: bold;">[PHASE 03: DEVOPS & SEC_OPS]</span>
+                        <span style="color: #34d399; font-size: 11px;">🚀 ACTIVE / CERTIFIED</span>
+                    </div>
+                    <p style="color: white; font-size: 15px; font-weight: bold; margin-bottom: 6px;">DevSecOps, Docker & CI/CD Pipelines</p>
+                    <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 12px;">
+                        Formação concluída pelo programa Hackers do Bem. Foco em segurança de aplicações, conteinerização com Docker, automação de integração contínua (CI/CD) e GitLab.
+                    </p>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        <span style="background: rgba(37,99,235,0.2); color: #60a5fa; font-size: 10px; padding: 3px 8px; border-radius: 4px;">Docker</span>
+                        <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 10px; padding: 3px 8px; border-radius: 4px;">CI/CD / GitLab</span>
+                        <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 10px; padding: 3px 8px; border-radius: 4px;">DevSecOps</span>
+                    </div>
+                </div>
+
+                <!-- FASE 4: MERCADO DE TRABALHO (Objetivo Principal) -->
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px dashed rgba(37, 99, 235, 0.4); padding: 20px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span style="color: #60a5fa; font-size: 12px; font-weight: bold;">[PHASE 04: PROFESSIONAL HORIZON]</span>
+                        <span style="color: #f87171; font-size: 11px; font-family: monospace;">🎯 TARGET_GOAL</span>
+                    </div>
+                    <p style="color: white; font-size: 15px; font-weight: bold; margin-bottom: 6px;">Conquista da Primeira Oportunidade como Desenvolvedora</p>
+                    <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 12px;">
+                        Integrar um time de tecnologia de alto desempenho para aplicar conhecimentos de backend, segurança e metodologias ágeis, entregando valor real aos negócios.
+                    </p>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 10px; padding: 3px 8px; border-radius: 4px;">Open to Work</span>
+                        <span style="background: rgba(37,99,235,0.2); color: #60a5fa; font-size: 10px; padding: 3px 8px; border-radius: 4px;">Backend Engineer</span>
+                    </div>
+                </div>
+
+            <!-- EASTER EGG: OVERRIDE / SPIDER-SENSE PRANK -->
+            <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(220, 38, 38, 0.4); padding: 18px; border-radius: 8px;" id="prank-container">
+                <p style="color: var(--spider-red); font-size: 12px; margin-bottom: 8px; font-weight: bold;">[TERMINAL_OVERRIDE // TENTAR INCLUIR NOVO OBJETIVO]</p>
+                <p style="color: #94a3b8; font-size: 12px; margin-bottom: 12px;">Quer tentar burlar o sistema e adicionar um objetivo próprio? Digite abaixo e tente executar:</p>
+                
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" id="pdi-input-prank" placeholder="Ex: Viajar para Marte..." style="flex: 1; background: rgba(0,0,0,0.6); border: 1px solid rgba(37,99,235,0.4); color: white; padding: 8px 12px; border-radius: 4px; font-size: 12px; outline: none;">
+                    <button id="pdi-btn-prank" style="background: var(--spider-red); color: white; border: none; padding: 8px 16px; border-radius: 4px; font-size: 11px; font-weight: bold; cursor: pointer; transition: 0.3s;">[ EXECUTAR ]</button>
+                </div>
+
+                <!-- Mensagem do Sentido Aranha -->
+                <div id="spider-sense-alert" style="display: none; margin-top: 12px; padding: 10px; background: rgba(220, 38, 38, 0.2); border: 1px solid var(--spider-red); border-radius: 4px; color: #fca5a5; font-size: 12px; font-family: monospace;">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TELA 05: PROJECTS (SELECTED REPOSITORIES) -->
+    <section id="projects" class="pdi-view">
+        <div class="section-title">
+            <span>05.</span> PROJECTS // SELECTED_REPOS
+        </div>
+        
+        <div class="terminal-box" style="padding: 30px;">
+            <p style="color: #60a5fa; margin-bottom: 8px;">> system_repos --load-curated</p>
+            <p style="color: #94a3b8; font-size: 13px; margin-bottom: 25px;">Repositórios e sistemas de destaque desenvolvidos e mantidos pela operadora.</p>
+            
+            <!-- Grid de Projetos Selecionados -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                
+                <!-- Projeto 01: Hatake Games -->
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(220, 38, 38, 0.4); padding: 20px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="color: var(--spider-red); font-size: 11px; font-weight: bold;">[BLOCK_01 // E-COMMERCE]</span>
+                            <span style="color: #10B981; font-size: 11px;">🟢 Online</span>
+                        </div>
+                        <h3 style="color: white; font-size: 18px; margin-bottom: 8px;">🎮 Hatake Games</h3>
+                        <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 15px;">
+                            Sistema de e-commerce de jogos desenvolvido em Java, focado em regras de negócio, modelagem relacional de dados e arquitetura de backend estruturada.
+                        </p>
+                    </div>
+                    <div>
+                        <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 15px;">
+                            <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 10px; padding: 4px 8px; border-radius: 4px;">Java</span>
+                            <span style="background: rgba(37,99,235,0.2); color: #60a5fa; font-size: 10px; padding: 4px 8px; border-radius: 4px;">Spring Boot</span>
+                            <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 10px; padding: 4px 8px; border-radius: 4px;">MySQL</span>
+                        </div>
+                        <a href="https://github.com/marypraxedes/projeto_final_bloco_01" target="_blank" class="cv-button" style="display: block; text-align: center; text-decoration: none; font-size: 12px; padding: 10px; margin-top: 0;">
+                            [ REPOSITÓRIO ↗ ]
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projeto 02: Blog Pessoal (API REST + Swagger + Render) -->
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(37, 99, 235, 0.4); padding: 20px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="color: #60a5fa; font-size: 11px; font-weight: bold;">[API_REST // DEPLOYED]</span>
+                            <span style="color: #10B981; font-size: 11px;">🟢 Live on Render</span>
+                        </div>
+                        <h3 style="color: white; font-size: 18px; margin-bottom: 8px;">📝 Blog Pessoal API</h3>
+                        <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 15px;">
+                            API RESTful desenvolvida em Spring Boot com segurança e persistência de dados. Conta com documentação completa via Swagger UI e deploy ativo em produção.
+                        </p>
+                    </div>
+                    <div>
+                        <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 15px;">
+                            <span style="background: rgba(220,38,38,0.2); color: #f87171; font-size: 10px; padding: 4px 8px; border-radius: 4px;">Java / Spring</span>
+                            <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 10px; padding: 4px 8px; border-radius: 4px;">Swagger</span>
+                            <span style="background: rgba(37,99,235,0.2); color: #60a5fa; font-size: 10px; padding: 4px 8px; border-radius: 4px;">Render</span>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <a href="https://blogpessoal-spring-3pm7.onrender.com/" target="_blank" style="flex: 1; text-align: center; text-decoration: none; font-size: 12px; padding: 10px; margin-top: 0; background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10B981; border-radius: 6px; font-weight: bold; transition: 0.3s;" onmouseover="this.style.background='rgba(16, 185, 129, 0.4)'" onmouseout="this.style.background='rgba(16, 185, 129, 0.2)'">
+                                [ SWAGGER ↗ ]
+                            </a>
+                            <a href="https://github.com/marypraxedes/blogpessoal_spring" target="_blank" class="cv-button" style="flex: 1; text-align: center; text-decoration: none; font-size: 12px; padding: 10px; margin-top: 0;">
+                                [ REPO ↗ ]
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exemplo de Card Vago para o Próximo Projeto -->
+                <div style="background: rgba(15, 23, 42, 0.5); border: 1px dashed rgba(37, 99, 235, 0.3); padding: 20px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 220px;">
+                    <p style="color: #60a5fa; font-size: 12px; margin-bottom: 8px;">[NEXT_PROTOCOL_IN_PROGRESS]</p>
+                    <p style="color: #94a3b8; font-size: 13px; margin-bottom: 15px;">Novos sistemas e APIs em desenvolvimento no bootcamp e projetos autorais.</p>
+                    <span style="color: #10B981; font-size: 11px; font-family: monospace;">// COMING SOON...</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <script src="js/script.js"></script>
 </body>
+
 </html>

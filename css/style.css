@@ -407,3 +407,102 @@ footer {
         margin: 0 auto;
     }
 }
+
+/* =========================
+   SISTEMA DE ABAS (SPA VIEWS)
+========================= */
+.pdi-view {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    padding-top: 80px; /* Reduzido para aproximar do topo */
+}
+
+.pdi-view.active {
+    display: block;
+    opacity: 1;
+    animation: aparecer 0.5s ease;
+}
+
+/* Garante que a tela de Intro (Boot) fique perfeitamente centralizada sem espaçamento sobrando */
+#intro.pdi-view.active {
+    display: flex;
+    padding-top: 0;
+}
+
+/* =========================
+   BOTÕES DA ABA ABOUT
+========================= */
+.social-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background: rgba(220, 38, 38, 0.1);
+    color: var(--web-white);
+    border: 1px solid var(--spider-red);
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.social-button:hover {
+    background: var(--spider-red);
+    color: white;
+    box-shadow: 0 0 20px var(--spider-red);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVIDADE DA STACK
+========================= */
+@media (max-width: 900px) {
+    .stack-container {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* =========================
+   HUD SIDEBAR (PAINEL LATERAL DIREITO)
+========================= */
+.hud-sidebar {
+    position: fixed;
+    right: 25px;
+    top: 110px;
+    width: 280px;
+    z-index: 99;
+}
+
+/* Deixa o espaço para o painel apenas nas abas internas, excluindo a tela de Intro */
+@media (min-width: 1025px) {
+    .pdi-view:not(#intro) {
+        margin-right: 310px;
+        margin-left: 20px;
+    }
+}
+
+/* Esconde o painel em telas menores (tablets e celulares) */
+@media (max-width: 1024px) {
+    .hud-sidebar {
+        display: none !important;
+    }
+}
+
+/* =========================
+   SPIDER-SENSE PRANK EFFECT
+========================= */
+@keyframes spiderShake {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-6px, 0); }
+    40% { transform: translate(6px, 0); }
+    60% { transform: translate(-6px, 0); }
+    80% { transform: translate(6px, 0); }
+    100% { transform: translate(0, 0); }
+}
+
+.spider-sense-active {
+    animation: spiderShake 0.4s ease-in-out;
+    border-color: var(--spider-red) !important;
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+}
