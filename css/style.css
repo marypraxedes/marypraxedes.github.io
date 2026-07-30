@@ -506,3 +506,105 @@ footer {
     border-color: var(--spider-red) !important;
     box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
 }
+
+/* =========================================
+   MOBILE RESPONSIVENESS (HUD ADAPTATION)
+========================================= */
+@media (max-width: 768px) {
+    /* Ajusta o container principal e espaçamentos no mobile */
+    body {
+        padding: 10px;
+        overflow-x: hidden;
+    }
+
+    /* Transforma o Grid da Stack (Texto + Gráfico) em coluna única */
+    .stack-container {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    /* Transforma os grids de projetos e métricas em coluna única */
+    section .terminal-box div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Ajusta a sidebar HUD para ocupar a largura da tela sem quebrar o layout */
+    .hud-sidebar {
+        width: 90% !important;
+        max-width: 320px;
+        right: 5% !important;
+        left: auto !important;
+        top: 70px !important;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    /* Reduz levemente títulos e fontes para caberem bem em telas menores */
+    h1 {
+        font-size: 22px !important;
+    }
+
+    .section-title {
+        font-size: 14px !important;
+    }
+
+    /* Garante que imagens e gráficos fiquem fluidos */
+    img, canvas {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* Regras para Telas Pequenas (Mobile) */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    body {
+        padding: 10px;
+        overflow-x: hidden;
+    }
+
+    .stack-container {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    /* Correção definitiva da Foto (Impedindo vazamento) */
+    .about-container {
+        display: flex;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .profile-frame {
+        width: 100% !important;
+        max-width: 180px !important;
+        height: auto !important;
+        overflow: hidden !important;
+        margin: 0 auto 15px auto !important;
+        box-sizing: border-box !important;
+    }
+    
+    .profile-pic {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        object-fit: cover !important;
+    }
+
+    /* Empilhamento do botão Prank do PDI */
+    #prank-container div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    
+    #prank-container input, 
+    #prank-container button {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+}
